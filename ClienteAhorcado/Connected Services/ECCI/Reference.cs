@@ -41,6 +41,33 @@ namespace ClienteAhorcado.ECCI {
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#ultimoSaludo", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<string> ultimoSaludoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#retornaPalabra", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string retornaPalabra();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#retornaPalabra", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<string> retornaPalabraAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#saludito", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string saludito(string letra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#saludito", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<string> saluditoAsync(string letra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#palabraAdivinada", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        bool palabraAdivinada();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#palabraAdivinada", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<bool> palabraAdivinadaAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -92,6 +119,30 @@ namespace ClienteAhorcado.ECCI {
         
         public System.Threading.Tasks.Task<string> ultimoSaludoAsync() {
             return base.Channel.ultimoSaludoAsync();
+        }
+        
+        public string retornaPalabra() {
+            return base.Channel.retornaPalabra();
+        }
+        
+        public System.Threading.Tasks.Task<string> retornaPalabraAsync() {
+            return base.Channel.retornaPalabraAsync();
+        }
+        
+        public string saludito(string letra) {
+            return base.Channel.saludito(letra);
+        }
+        
+        public System.Threading.Tasks.Task<string> saluditoAsync(string letra) {
+            return base.Channel.saluditoAsync(letra);
+        }
+        
+        public bool palabraAdivinada() {
+            return base.Channel.palabraAdivinada();
+        }
+        
+        public System.Threading.Tasks.Task<bool> palabraAdivinadaAsync() {
+            return base.Channel.palabraAdivinadaAsync();
         }
     }
 }

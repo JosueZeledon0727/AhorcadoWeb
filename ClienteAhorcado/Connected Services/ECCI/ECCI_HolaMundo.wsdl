@@ -17,6 +17,20 @@
   <wsdl:message name="ultimoSaludoOut">
     <wsdl:part name="return" type="xsd:string" />
   </wsdl:message>
+  <wsdl:message name="retornaPalabraIn" />
+  <wsdl:message name="retornaPalabraOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="saluditoIn">
+    <wsdl:part name="letra" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="saluditoOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="palabraAdivinadaIn" />
+  <wsdl:message name="palabraAdivinadaOut">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
   <wsdl:portType name="ECCI_HolaMundoPort">
     <wsdl:operation name="salude">
       <documentation>HolaMundo::salude() Saluda al Mundo o a $this-&gt;nombre o saluda a $nombre si $nombre no es vacío.</documentation>
@@ -32,6 +46,19 @@
       <documentation>HolaMundo::ultimoSaludo() Devuelve el saludo guardado en la propiedad ultimo_saludo.</documentation>
       <wsdl:input message="tns:ultimoSaludoIn" />
       <wsdl:output message="tns:ultimoSaludoOut" />
+    </wsdl:operation>
+    <wsdl:operation name="retornaPalabra">
+      <documentation>HolaMundo::retornaPalabra() Devuelve una palabra al azar de las guardadas en la base de datos.</documentation>
+      <wsdl:input message="tns:retornaPalabraIn" />
+      <wsdl:output message="tns:retornaPalabraOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saludito">
+      <wsdl:input message="tns:saluditoIn" />
+      <wsdl:output message="tns:saluditoOut" />
+    </wsdl:operation>
+    <wsdl:operation name="palabraAdivinada">
+      <wsdl:input message="tns:palabraAdivinadaIn" />
+      <wsdl:output message="tns:palabraAdivinadaOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ECCI_HolaMundoBinding" type="tns:ECCI_HolaMundoPort">
@@ -56,6 +83,33 @@
     </wsdl:operation>
     <wsdl:operation name="ultimoSaludo">
       <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#ultimoSaludo" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retornaPalabra">
+      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#retornaPalabra" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saludito">
+      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#saludito" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="palabraAdivinada">
+      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#palabraAdivinada" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
