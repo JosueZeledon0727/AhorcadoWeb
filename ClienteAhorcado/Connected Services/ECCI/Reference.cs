@@ -68,6 +68,26 @@ namespace ClienteAhorcado.ECCI {
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#palabraAdivinada", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<bool> palabraAdivinadaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#letraFallida", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        bool letraFallida();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#letraFallida", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<bool> letraFallidaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#obtenerCantidadErrores", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.Xml.Serialization.SoapElementAttribute(DataType="integer")]
+        string obtenerCantidadErrores();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#obtenerCantidadErrores", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.Xml.Serialization.SoapElementAttribute(DataType="integer")]
+        System.Threading.Tasks.Task<string> obtenerCantidadErroresAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -143,6 +163,22 @@ namespace ClienteAhorcado.ECCI {
         
         public System.Threading.Tasks.Task<bool> palabraAdivinadaAsync() {
             return base.Channel.palabraAdivinadaAsync();
+        }
+        
+        public bool letraFallida() {
+            return base.Channel.letraFallida();
+        }
+        
+        public System.Threading.Tasks.Task<bool> letraFallidaAsync() {
+            return base.Channel.letraFallidaAsync();
+        }
+        
+        public string obtenerCantidadErrores() {
+            return base.Channel.obtenerCantidadErrores();
+        }
+        
+        public System.Threading.Tasks.Task<string> obtenerCantidadErroresAsync() {
+            return base.Channel.obtenerCantidadErroresAsync();
         }
     }
 }

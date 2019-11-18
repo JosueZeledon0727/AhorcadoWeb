@@ -31,6 +31,14 @@
   <wsdl:message name="palabraAdivinadaOut">
     <wsdl:part name="return" type="xsd:boolean" />
   </wsdl:message>
+  <wsdl:message name="letraFallidaIn" />
+  <wsdl:message name="letraFallidaOut">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="obtenerCantidadErroresIn" />
+  <wsdl:message name="obtenerCantidadErroresOut">
+    <wsdl:part name="return" type="xsd:integer" />
+  </wsdl:message>
   <wsdl:portType name="ECCI_HolaMundoPort">
     <wsdl:operation name="salude">
       <documentation>HolaMundo::salude() Saluda al Mundo o a $this-&gt;nombre o saluda a $nombre si $nombre no es vacío.</documentation>
@@ -59,6 +67,14 @@
     <wsdl:operation name="palabraAdivinada">
       <wsdl:input message="tns:palabraAdivinadaIn" />
       <wsdl:output message="tns:palabraAdivinadaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="letraFallida">
+      <wsdl:input message="tns:letraFallidaIn" />
+      <wsdl:output message="tns:letraFallidaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCantidadErrores">
+      <wsdl:input message="tns:obtenerCantidadErroresIn" />
+      <wsdl:output message="tns:obtenerCantidadErroresOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ECCI_HolaMundoBinding" type="tns:ECCI_HolaMundoPort">
@@ -110,6 +126,24 @@
     </wsdl:operation>
     <wsdl:operation name="palabraAdivinada">
       <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#palabraAdivinada" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="letraFallida">
+      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#letraFallida" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCantidadErrores">
+      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#obtenerCantidadErrores" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>

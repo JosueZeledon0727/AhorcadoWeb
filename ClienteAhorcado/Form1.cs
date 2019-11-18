@@ -32,14 +32,28 @@ namespace ClienteAhorcado
             if (textBox1.TextLength != 0)
             {
                 label2.Text = holaMundo.saludito(textBox1.Text);
-            }
 
-            // Chequea si la palabra fue adivinada
-            if (holaMundo.palabraAdivinada())
-            {
-                MessageBox.Show("JUEGO TERMINADO! :3");
-                this.button1.Enabled = false;
+                // Chequea si la letra no estaba en la palabra
+                if (holaMundo.letraFallida())
+                {
+                    modificarImagen(Convert.ToInt32(holaMundo.obtenerCantidadErrores()));
+                }
+                // Chequea si la palabra fue adivinada
+                if (holaMundo.palabraAdivinada())
+                {
+                    MessageBox.Show("JUEGO TERMINADO! :3");
+                    this.button1.Enabled = false;
+                }
+
+                // Borra el contenido de la letra que ya digitó
+                textBox1.Text = "";
             }
+        }
+
+        public void modificarImagen(int numImagen)
+        {
+            if(numImagen != 0)
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Josué\\Desktop\\Ahorcado\\"+(numImagen)+".png");
         }
 
     }
