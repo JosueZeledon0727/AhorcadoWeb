@@ -16,5 +16,18 @@ namespace ClienteAhorcado
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Establece el máximo largo del input
+            //textBox1.MaxLength = 1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ECCI.ECCI_HolaMundoPortClient holaMundo = new ECCI.ECCI_HolaMundoPortClient();
+            MessageBox.Show(holaMundo.salude(textBox1.Text));
+            //label2.Text = holaMundo.salude(textBox1.Text);
+        }
     }
 }
