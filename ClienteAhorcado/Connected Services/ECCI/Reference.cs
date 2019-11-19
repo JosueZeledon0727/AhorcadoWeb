@@ -88,6 +88,29 @@ namespace ClienteAhorcado.ECCI {
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         [return: System.Xml.Serialization.SoapElementAttribute(DataType="integer")]
         System.Threading.Tasks.Task<string> obtenerCantidadErroresAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#juegoPerdido", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        bool juegoPerdido();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#juegoPerdido", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<bool> juegoPerdidoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#guardarNombreJugador", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        void guardarNombreJugador(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#guardarNombreJugador", ReplyAction="*")]
+        System.Threading.Tasks.Task guardarNombreJugadorAsync(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#registrarGanador", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        void registrarGanador();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_HolaMundo#HolaMundo#registrarGanador", ReplyAction="*")]
+        System.Threading.Tasks.Task registrarGanadorAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -179,6 +202,30 @@ namespace ClienteAhorcado.ECCI {
         
         public System.Threading.Tasks.Task<string> obtenerCantidadErroresAsync() {
             return base.Channel.obtenerCantidadErroresAsync();
+        }
+        
+        public bool juegoPerdido() {
+            return base.Channel.juegoPerdido();
+        }
+        
+        public System.Threading.Tasks.Task<bool> juegoPerdidoAsync() {
+            return base.Channel.juegoPerdidoAsync();
+        }
+        
+        public void guardarNombreJugador(string nombre) {
+            base.Channel.guardarNombreJugador(nombre);
+        }
+        
+        public System.Threading.Tasks.Task guardarNombreJugadorAsync(string nombre) {
+            return base.Channel.guardarNombreJugadorAsync(nombre);
+        }
+        
+        public void registrarGanador() {
+            base.Channel.registrarGanador();
+        }
+        
+        public System.Threading.Tasks.Task registrarGanadorAsync() {
+            return base.Channel.registrarGanadorAsync();
         }
     }
 }

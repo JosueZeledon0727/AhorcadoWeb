@@ -8,6 +8,8 @@ namespace ClienteAhorcado
 {
     static class Program
     {
+        public static string nombreJugador = "";
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -16,7 +18,7 @@ namespace ClienteAhorcado
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form2());
         }
     }
 }
