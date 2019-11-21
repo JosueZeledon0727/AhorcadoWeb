@@ -49,6 +49,14 @@
   <wsdl:message name="guardarNombreJugadorOut" />
   <wsdl:message name="registrarGanadorIn" />
   <wsdl:message name="registrarGanadorOut" />
+  <wsdl:message name="sacarDatosArchivoIn" />
+  <wsdl:message name="sacarDatosArchivoOut" />
+  <wsdl:message name="retornarTopIn">
+    <wsdl:part name="nombre" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="retornarTopOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
   <wsdl:portType name="ECCI_HolaMundoPort">
     <wsdl:operation name="salude">
       <documentation>HolaMundo::salude() Saluda al Mundo o a $this-&gt;nombre o saluda a $nombre si $nombre no es vacío.</documentation>
@@ -97,6 +105,15 @@
     <wsdl:operation name="registrarGanador">
       <wsdl:input message="tns:registrarGanadorIn" />
       <wsdl:output message="tns:registrarGanadorOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sacarDatosArchivo">
+      <wsdl:input message="tns:sacarDatosArchivoIn" />
+      <wsdl:output message="tns:sacarDatosArchivoOut" />
+    </wsdl:operation>
+    <wsdl:operation name="retornarTop">
+      <documentation>HolaMundo::adivinaPalabra() Verifica si la persona ya adivinó la palabra.</documentation>
+      <wsdl:input message="tns:retornarTopIn" />
+      <wsdl:output message="tns:retornarTopOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ECCI_HolaMundoBinding" type="tns:ECCI_HolaMundoPort">
@@ -193,6 +210,24 @@
     </wsdl:operation>
     <wsdl:operation name="registrarGanador">
       <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#registrarGanador" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sacarDatosArchivo">
+      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#sacarDatosArchivo" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retornarTop">
+      <soap:operation soapAction="urn:ECCI_HolaMundo#HolaMundo#retornarTop" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:ECCI_HolaMundo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>

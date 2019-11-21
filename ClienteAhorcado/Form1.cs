@@ -62,6 +62,12 @@ namespace ClienteAhorcado
                 {
                     MessageBox.Show("Ganaste!", "JUEGO TERMINADO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.button1.Enabled = false;
+
+                    for(int i = 0; i < 10; ++i)
+                    {
+                        label6.Text = holaMundo.retornarTop(i);
+                    }
+                    
                 }
 
                 // Borra el contenido de la letra que ya digitó
